@@ -11,14 +11,14 @@ public class RegexEngine {
     public static void printTransitionTable(String regex) {
         // print the transition table corresponding to the regex string
         // only if verbose mode is enabled
-        if (debug == true) System.out.println("DEBUG: Printing transition table for regex: " + regex);
+        if (debug) System.out.println("DEBUG: Printing transition table for regex '" + regex + "'");
         return;
     }
 
     public static boolean evaluateInputString(String regex, String inputString) {
         // takes a regular expression and a second input string to compare against it
         // prints
-        if (debug == true) System.out.println("DEBUG: Comparing string: " + inputString + " against regular expression " + regex);
+        if (debug) System.out.println("DEBUG: Comparing string '" + inputString + "' against regular expression '" + regex + "'");
         return false;
     }
     public static void main(String[] args) {
@@ -30,14 +30,14 @@ public class RegexEngine {
         // sets verbose mode
         boolean verbose = Arrays.stream(args)
             .anyMatch(arg -> arg.equals("-v"));
-        if (debug == true) System.out.println("DEBUG: Verbose mode: " + verbose);
+        if (debug) System.out.println("DEBUG: Verbose mode: " + verbose);
 
         // parse the first input line, store as regex, then print transition table if verbose
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            if (debug == true) System.out.println("DEBUG: BufferedReader created");
+            if (debug) System.out.println("DEBUG: BufferedReader created");
             String regex = reader.readLine();
             
-            if (verbose == true) printTransitionTable(regex);
+            if (verbose) printTransitionTable(regex);
             System.out.println("ready");
 
             // Parse/evaluate subsequent lines
