@@ -108,7 +108,11 @@ class State {
     }
 
     public Set<State> getTransitions(Character transitionChar) {
-        return transitions.get(transitionChar);
+        Set<State> transitionSet = transitions.get(transitionChar);
+        if (transitionSet == null) {
+            return Set.of();
+        }
+        return transitionSet;
     }
 
     public void addEpsilonTransition(State transitionState) {

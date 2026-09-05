@@ -30,7 +30,7 @@ public class RegexEngine_Test {
 
         q0.addTransition('a', Set.of(q1));
 
-        assertEquals(Set.of(q1), q0.getTransitions('a'));
+        assertEquals(true, q0.getTransitions('a').contains(q1));
     }
 
     @Test
@@ -42,6 +42,41 @@ public class RegexEngine_Test {
 
         q0.addTransition('a', Set.of(q1, q2));
 
-        assertEquals(Set.of(q1, q2), q0.getTransitions('a'));
+        assertEquals(true, q0.getTransitions('a').containsAll(Set.of(q1, q2)));
     }
+
+    @Test
+    public void retrieveEpsilonStateTransition() {
+        // create two States with an epsilon transition between them and successfully retrieve that transition
+
+        State q0 = new State(0);
+        State q1 = new State(1);
+
+        q0.addEpsilonTransition(q1);
+
+        assertEquals(true, q0.getEpsilonTransitions().contains(q1));
+    }
+
+    @Test
+    public void retrieveMultipleEpsilonStateTransitions() {
+        // create three states and successfully retrieve both epsilon transitions
+        State q0 = new State(0);
+        State q1 = new State(1);
+        State q2 = new State(2);
+
+        q0.addEpsilonTransition(q1);
+        q0.addEpsilonTransition(q2);
+
+        assertEquals(true, q0.getEpsilonTransitions().containsAll(Set.of(q1,q2)));
+    }
+
+    @Test 
+    public void getInvalidStateTransition() {
+        // create state and attempt to make transition that does not exist. Should return empty set.
+        State q0 = new State(0);
+        q0.addTransition('a', Set.of(q0));
+
+        assertTrue(q0.getTransitions('b').isEmpty());
+    }
+
 }
