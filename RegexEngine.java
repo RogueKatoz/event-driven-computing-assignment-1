@@ -57,6 +57,8 @@ public class RegexEngine {
 }
 
 class EpsilonNFA {
+    // holds the base epsilon-NFA, through which we can access individual states and transtions
+
     private Set<State> states;
     private State startingState;
     private State acceptingState;
@@ -85,6 +87,8 @@ class EpsilonNFA {
 
 }
 class State {
+    // each a given state and the available movements from that state to others
+
     private Map<Character,Set<State>> transitions;
     private Set<State> epsilonTransitions;
 
