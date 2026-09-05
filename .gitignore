@@ -1,0 +1,10 @@
+*.class
+out/
+.idea/
+.vs/
+*.user
+*.suo
+.vscode/
+bin/
+obj/
+out/
