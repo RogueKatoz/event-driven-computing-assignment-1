@@ -6,13 +6,12 @@ import java.util.Arrays;
 
 public class RegexEngine {
 
-    public static boolean debug;
+    private static boolean debug;
 
     public static void printTransitionTable(String regex) {
         // print the transition table corresponding to the regex string
         // only if verbose mode is enabled
         if (debug) System.out.println("DEBUG: Printing transition table for regex '" + regex + "'");
-        return;
     }
 
     public static boolean evaluateInputString(String regex, String inputString) {
