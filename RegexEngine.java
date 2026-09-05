@@ -46,7 +46,7 @@ public class RegexEngine {
             }
 
         } catch (IOException e) {
-            System.out.println("An error has occured:" + e.getMessage());
+            System.err.println("An error has occurred:" + e.getMessage());
         }
 
     }
