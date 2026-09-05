@@ -61,14 +61,26 @@ class EpsilonNFA {
     private State startingState;
     private State acceptingState;
 
-    public EpsilonNFA(Set<State> states, State startingState, Set<State> acceptingStates) {
+    public EpsilonNFA(Set<State> states, State startingState, State acceptingState) {
         this.states = states;
         this.startingState = startingState;
         this.acceptingState = acceptingState;
     }
 
     public void addState(State newState) {
+        states.add(newState);
+    }
 
+    public Set<State> getStates() {
+        return states;
+    }
+
+    public State getStartingState() {
+        return startingState;
+    }
+
+    public State getAcceptingState() {
+        return acceptingState;
     }
 
 }
