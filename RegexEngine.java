@@ -68,5 +68,5 @@ class EpsilonNFA {
     }
 }
 class State {
-
+    
 }
