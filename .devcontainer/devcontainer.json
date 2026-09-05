@@ -1,0 +1,20 @@
+{
+    "name": "EDC Assignment 1",
+    "image": "mcr.microsoft.com/devcontainers/java:11-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y junit4",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    },
+    "mounts": [
+        "source=edc-a1-github-config,target=/home/vscode/.config/gh,type=volume"
+    ],
+    "remoteUser": "vscode"
+}
