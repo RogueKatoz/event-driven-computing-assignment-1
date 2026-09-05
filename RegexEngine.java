@@ -89,12 +89,18 @@ class EpsilonNFA {
 class State {
     // each a given state and the available movements from that state to others
 
+    private Integer stateId;
     private Map<Character,Set<State>> transitions;
     private Set<State> epsilonTransitions;
 
-    public State() {
+    public State(Integer stateId) {
+        this.stateId = stateId;
         transitions = new HashMap<>();
         epsilonTransitions = new HashSet<>();
+    }
+
+    public Integer getId() {
+        return stateId;
     }
 
     public void addTransition(Character transitionChar, Set<State> transitionStates) {
