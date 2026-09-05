@@ -2,6 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 
 public class RegexEngine {
@@ -50,4 +54,19 @@ public class RegexEngine {
         }
 
     }
+}
+
+class EpsilonNFA {
+    private Set<State> states;
+    private State startingState;
+    private Set<State> acceptingStates;
+
+    EpsilonNFA(Set<State> states, State startingState, Set<State> acceptingStates) {
+        this.states = states;
+        this.startingState = startingState;
+        this.acceptingStates = acceptingStates;
+    }
+}
+class State {
+
 }
