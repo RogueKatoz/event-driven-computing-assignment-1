@@ -74,13 +74,27 @@ class EpsilonNFA {
 }
 class State {
     private Map<Character,Set<State>> transitions;
+    private Set<State> epsilonTransitions;
 
     public State() {
         transitions = new HashMap<>();
+        epsilonTransitions = new HashSet<>();
     }
 
     public void addTransition(Character transitionChar, Set<State> transitionStates) {
         transitions.put(transitionChar, transitionStates);
+    }
+
+    public Set<State> getTransitions(Character transitionChar) {
+        return transitions.get(transitionChar);
+    }
+
+    public void addEpsilonTransition(State transitionState) {
+        epsilonTransitions.add(transitionState);
+    }
+
+    public Set<State> getEpsilonTransitions() {
+        return epsilonTransitions;
     }
 
 }
