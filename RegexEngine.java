@@ -59,14 +59,28 @@ public class RegexEngine {
 class EpsilonNFA {
     private Set<State> states;
     private State startingState;
-    private Set<State> acceptingStates;
+    private State acceptingState;
 
-    EpsilonNFA(Set<State> states, State startingState, Set<State> acceptingStates) {
+    public EpsilonNFA(Set<State> states, State startingState, Set<State> acceptingStates) {
         this.states = states;
         this.startingState = startingState;
-        this.acceptingStates = acceptingStates;
+        this.acceptingState = acceptingState;
     }
+
+    public void addState(State newState) {
+
+    }
+
 }
 class State {
-    
+    private Map<Character,Set<State>> transitions;
+
+    public State() {
+        transitions = new HashMap<>();
+    }
+
+    public void addTransition(Character transitionChar, Set<State> transitionStates) {
+        transitions.put(transitionChar, transitionStates);
+    }
+
 }
